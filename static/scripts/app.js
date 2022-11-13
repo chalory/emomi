@@ -107,9 +107,13 @@ if (piano) {
         });
     };
 
+    let bgMusicTimeout;
+    let bgMusicElement = document.querySelector(".bg-music");
+
     whiteKeys.forEach((key, index) => {
         key.addEventListener("click", e => {
             clearTimeout(timeOut);
+            clearTimeout(bgMusicTimeout);
 
             hideEmotions();
 
@@ -118,9 +122,14 @@ if (piano) {
             if (currentEmotion) {
                 const emotionType = currentEmotion?.getAttribute("data-name")?.toLowerCase();
                 if (emotionType) {
-                    audio = new Audio(`../static/sfx/${emotionType}.wav`);
-                    audio.currentTime = 0;
-                    audio.play();
+                    bgMusicElement.src = `../static/sfx/${emotionType}.wav`;
+                    bgMusicElement.currentTime = 0;
+                    bgMusicElement.play();
+
+                    bgMusicTimeout = setTimeout(() => {
+                        bgMusicElement.pause();
+                        bgMusicElement.currentTime = 0;
+                    }, 5000);
                 }
                 currentEmotion.classList.toggle("show");
 
