@@ -116,11 +116,12 @@ if (piano) {
             const currentEmotion = emotions[index];
 
             if (currentEmotion) {
-                const emotionType = currentEmotion?.getAttribute("data-name").toLowerCase();
-                audio = new Audio(`../static/sfx/${emotionType}.wav`);
-                audio.currentTime = 0;
-                audio.play();
-
+                const emotionType = currentEmotion?.getAttribute("data-name")?.toLowerCase();
+                if (emotionType) {
+                    audio = new Audio(`../static/sfx/${emotionType}.wav`);
+                    audio.currentTime = 0;
+                    audio.play();
+                }
                 currentEmotion.classList.toggle("show");
 
                 if (currentEmotion.classList.contains("show")) {
