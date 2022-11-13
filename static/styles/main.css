@@ -1,0 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Satisfy&display=swap");
+
+@import url("piano.css");
+@import url("auth.css");
+@import url("home.css");
+@import url("speech_to_text.css");
+@import url("utils.css");
+
+body {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+}
