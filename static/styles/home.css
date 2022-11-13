@@ -33,6 +33,10 @@ header nav ul li a {
     overflow: hidden;
     position: relative;
 }
+.home .heading-primary {
+    margin-bottom: 0.5rem;
+}
+
 .home__texts {
     width: 50%;
     z-index: 2;
