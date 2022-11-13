@@ -156,7 +156,6 @@ if (speechContainer) {
             .join("");
 
         document.getElementById("p").innerHTML = transcript;
-        console.log(transcript);
     });
 
     if (speech == true) {
