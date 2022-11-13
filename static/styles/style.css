@@ -14,7 +14,7 @@ body {
     display: flex;
     box-shadow: 0 0 7px #000;
     overflow: hidden;
-    /* position: fixed; */
+    position: fixed;
 
 
 }

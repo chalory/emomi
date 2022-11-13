@@ -108,7 +108,7 @@ z.onclick = function() {
     }
     fade(y)
     setTimeout(() => {
-        y.style.visibility = 'hidden';
+        y.style.display = 'none';
     }, 2800, );
   }
 
