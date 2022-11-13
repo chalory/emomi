@@ -4,6 +4,7 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="../static/styles/main.css" />
+        <script defer src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
         <script defer src="../static/scripts/app.js"></script>
     </head>
     <body>
@@ -25,6 +26,10 @@
                 <div class="words" contenteditable>
                     <p id="p"></p>
                 </div>
+            </div>
+
+            <div class="graph">
+                <canvas id="bar-graph" style="width: 100%; max-width: 700px"></canvas>
             </div>
         </section>
     </body>
