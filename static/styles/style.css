@@ -4,7 +4,7 @@ body {
     align-items: center;
     justify-content: center;
     height: 1000px;
-    padding-right: 300px;
+    padding-right: 200px;
     padding-top: 150px;
     
    
@@ -14,7 +14,7 @@ body {
     display: flex;
     box-shadow: 0 0 7px #000;
     overflow: hidden;
-    position: fixed;
+    /* position: fixed; */
 
 
 }

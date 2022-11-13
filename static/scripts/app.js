@@ -10,7 +10,7 @@ let audio
 
 blackKeys.forEach((key, index) => {
     key.addEventListener('click', () => {
-        audio = new Audio(`./notes/${blackOrder[index]}.mp3`)
+        audio = new Audio(`../static/notes/${blackOrder[index]}.mp3`)
         audio.currentTime = 0
         audio.play()
     })
@@ -18,7 +18,7 @@ blackKeys.forEach((key, index) => {
 
 whiteKeys.forEach((key, index) => {
     key.addEventListener('click', () => {
-        audio = new Audio(`./notes/${whiteOrder[index]}.mp3`)
+        audio = new Audio(`../static/notes/${whiteOrder[index]}.mp3`)
         audio.currentTime = 0
         audio.play()
     })
@@ -27,7 +27,7 @@ whiteKeys.forEach((key, index) => {
 document.addEventListener('keyup', e => {
     whiteKeyboard.forEach((key, index) => {
         if(key == e.key) {
-            audio = new Audio(`./notes/${whiteOrder[index]}.mp3`)
+            audio = new Audio(`../static/notes/${whiteOrder[index]}.mp3`)
             audio.currentTime = 0
             audio.play()
 
@@ -40,7 +40,7 @@ document.addEventListener('keyup', e => {
 document.addEventListener('keyup', e => {
     blackKeyboard.forEach((key, index) => {
         if(key == e.key) {
-            audio = new Audio(`./notes/${blackOrder[index]}.mp3`)
+            audio = new Audio(`../static/notes/${blackOrder[index]}.mp3`)
             audio.currentTime = 0
             audio.play()
 
