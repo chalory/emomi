@@ -71,9 +71,9 @@ body {
     margin-left: 344px;
 }
 
-.hi {
-    align-items: flex-start;
-    width: 500px;
+.emotion {
+    align-items: center;
+    width: 0px;
     padding-bottom: 800px;
 
     opacity: 0;
@@ -82,6 +82,8 @@ body {
 
 .show {
     opacity: 1;
+    width: 500px;
+    
 }
 
 .hidden {
