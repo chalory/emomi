@@ -1,0 +1,7 @@
+.auth-container {
+    background-position: center;
+    background-size: cover;
+    background-image: url(../../static/img/auth-bg.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+        url(../../static/img/auth-bg.jpg);
+}
