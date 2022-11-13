@@ -72,6 +72,10 @@ const hungry = document.getElementById("hi2");
 const angry = document.getElementById("hi1");
 const happy = document.getElementById("hi3");
 const sleepy = document.getElementById("hi4");
+const bored = document.getElementById("hi5");
+const scared = document.getElementById("hi6");
+
+
 
 
 
@@ -81,6 +85,10 @@ const x = document.getElementById("white key key-2");
 const a = document.getElementById("white key key-3");
 const b = document.getElementById("white key key-4");
 const c = document.getElementById("white key key-5");
+const d = document.getElementById("white key key-6");
+const e = document.getElementById("white key key-7");
+
+
 
 
 const emotions = document.querySelectorAll(".emotions")
@@ -167,3 +175,40 @@ c.onclick = function () {
         }, 1500);
     }
 };
+
+
+d.onclick = function () {
+    clearTimeout(timeOut);
+    emotions.forEach(element => {
+        element.classList.remove("show")
+    })
+
+    bored.classList.toggle("show");
+
+    if (bored.classList.contains("show")) {
+        timeOut = setTimeout(() => {
+            bored.classList.remove("show");
+            console.log("here");
+        }, 1500);
+    }
+};
+
+
+e.onclick = function () {
+    clearTimeout(timeOut);
+    emotions.forEach(element => {
+        element.classList.remove("show")
+    })
+
+    scared.classList.toggle("show");
+
+    if (scared.classList.contains("show")) {
+        timeOut = setTimeout(() => {
+            scared.classList.remove("show");
+            console.log("here");
+        }, 1500);
+    }
+};
+
+
+
