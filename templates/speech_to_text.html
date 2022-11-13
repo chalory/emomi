@@ -3,8 +3,8 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="../static/styles/style.css" />
-        <script src="../static/scripts/app.js"></script>
+        <link rel="stylesheet" href="../static/styles/main.css" />
+        <script defer src="../static/scripts/app.js"></script>
     </head>
     <body>
         <header>
@@ -15,12 +15,16 @@
                 </ul>
             </nav>
         </header>
-        <section>
+        <section id="speech-container">
             <div class="speech-to-text section-px">
                 <button id="speech" class="mic-btn">
                     <div class="pulse-ring"></div>
                     <img src="../static/img/microphone.png" alt="" />
                 </button>
+
+                <div class="words" contenteditable>
+                    <p id="p"></p>
+                </div>
             </div>
         </section>
     </body>

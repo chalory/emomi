@@ -1,5 +1,11 @@
 .speech-to-text {
     margin-top: 8rem;
+    display: flex;
+    gap: 5rem;
+}
+
+.words {
+    font-size: 2rem;
 }
 
 .mic-btn {
@@ -46,6 +52,11 @@
     top: -5px;
     left: -5px;
     animation: pulsate infinite 1.5s;
+    display: none;
+}
+
+.show {
+    display: block;
 }
 
 .pulse-ring.delay {

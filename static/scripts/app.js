@@ -79,7 +79,6 @@ if (piano) {
         if (y.classList.contains("show")) {
             timeOut = setTimeout(() => {
                 y.classList.remove("show");
-                console.log("here");
             }, 1500);
         }
     };
@@ -98,143 +97,70 @@ if (piano) {
     };
 }
 
-// const speechToText = document.querySelector(".speech-to-text");
-// if (speechToText) {
-//     console.log(123213);
-// }
-
 //toggle var
 var fade_state = true;
 //on btn click
 
-const sadness = document.getElementById("hi");
-const hungry = document.getElementById("hi2");
-const angry = document.getElementById("hi1");
-const happy = document.getElementById("hi3");
-const sleepy = document.getElementById("hi4");
-const bored = document.getElementById("hi5");
-const scared = document.getElementById("hi6");
+const emotions = document.querySelectorAll(".emotion");
+const hideEmotions = () => {
+    emotions.forEach(element => {
+        element.classList.remove("show");
+    });
+};
 
-const z = document.getElementById("white key key-1");
-const x = document.getElementById("white key key-2");
-const a = document.getElementById("white key key-3");
-const b = document.getElementById("white key key-4");
-const c = document.getElementById("white key key-5");
-const d = document.getElementById("white key key-6");
-const e = document.getElementById("white key key-7");
-
-const emotions = document.querySelectorAll(".emotions");
-console.log(emotions);
+const whiteKeys = document.querySelectorAll(".white.key");
 
 let timeOut;
 
-z.onclick = function () {
-    clearTimeout(timeOut);
-    emotions.forEach(element => {
-        element.classList.remove("show");
+whiteKeys.forEach((key, index) => {
+    key.addEventListener("click", e => {
+        clearTimeout(timeOut);
+
+        hideEmotions();
+
+        const currentEmotion = emotions[index];
+
+        currentEmotion.classList.toggle("show");
+
+        if (currentEmotion.classList.contains("show")) {
+            timeOut = setTimeout(() => {
+                currentEmotion.remove("show");
+                currentEmotion.classList.remove("show");
+            }, 1500);
+        }
+    });
+});
+
+// ! SPEECH TO TEXT
+const speechContainer = document.querySelector("#speech-container");
+const micBtn = document.querySelector(".mic-btn");
+const pulse = document.querySelector(".pulse-ring");
+
+if (speechContainer) {
+    micBtn.addEventListener("click", e => {
+        pulse.classList.toggle("show");
     });
 
-    sadness.classList.toggle("show");
+    let speech = true;
+    window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 
-    if (sadness.classList.contains("show")) {
-        timeOut = setTimeout(() => {
-            sadness.classList.remove("show");
-            console.log("here");
-        }, 1500);
-    }
-};
+    const recognition = new SpeechRecognition();
+    recognition.interimResults = true;
+    const words = document.querySelector(".words");
+    words.appendChild(p);
 
-x.onclick = function () {
-    clearTimeout(timeOut);
-    emotions.forEach(element => {
-        element.classList.remove("show");
+    recognition.addEventListener("result", e => {
+        const transcript = Array.from(e.results)
+            .map(result => result[0])
+            .map(result => result.transcript)
+            .join("");
+
+        document.getElementById("p").innerHTML = transcript;
+        console.log(transcript);
     });
 
-    hungry.classList.toggle("show");
-
-    if (hungry.classList.contains("show")) {
-        timeOut = setTimeout(() => {
-            hungry.classList.remove("show");
-            console.log("here");
-        }, 1500);
+    if (speech == true) {
+        recognition.start();
+        recognition.addEventListener("end", recognition.start);
     }
-};
-a.onclick = function () {
-    clearTimeout(timeOut);
-    emotions.forEach(element => {
-        element.classList.remove("show");
-    });
-
-    angry.classList.toggle("show");
-
-    if (angry.classList.contains("show")) {
-        timeOut = setTimeout(() => {
-            angry.classList.remove("show");
-            console.log("here");
-        }, 1500);
-    }
-};
-
-b.onclick = function () {
-    clearTimeout(timeOut);
-    emotions.forEach(element => {
-        element.classList.remove("show");
-    });
-
-    happy.classList.toggle("show");
-
-    if (happy.classList.contains("show")) {
-        timeOut = setTimeout(() => {
-            happy.classList.remove("show");
-            console.log("here");
-        }, 1500);
-    }
-};
-
-c.onclick = function () {
-    clearTimeout(timeOut);
-    emotions.forEach(element => {
-        element.classList.remove("show");
-    });
-
-    sleepy.classList.toggle("show");
-
-    if (sleepy.classList.contains("show")) {
-        timeOut = setTimeout(() => {
-            sleepy.classList.remove("show");
-            console.log("here");
-        }, 1500);
-    }
-};
-
-d.onclick = function () {
-    clearTimeout(timeOut);
-    emotions.forEach(element => {
-        element.classList.remove("show");
-    });
-
-    bored.classList.toggle("show");
-
-    if (bored.classList.contains("show")) {
-        timeOut = setTimeout(() => {
-            bored.classList.remove("show");
-            console.log("here");
-        }, 1500);
-    }
-};
-
-e.onclick = function () {
-    clearTimeout(timeOut);
-    emotions.forEach(element => {
-        element.classList.remove("show");
-    });
-
-    scared.classList.toggle("show");
-
-    if (scared.classList.contains("show")) {
-        timeOut = setTimeout(() => {
-            scared.classList.remove("show");
-            console.log("here");
-        }, 1500);
-    }
-};
+}
