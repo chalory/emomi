@@ -164,3 +164,23 @@ if (speechContainer) {
         recognition.addEventListener("end", recognition.start);
     }
 }
+
+const barGraph = document.querySelector("#bar-graph");
+if (barGraph) {
+    var xValues = ["Italy", "France", "Spain", "USA", "Argentina"];
+    var yValues = [55, 49, 44, 24, 15];
+    var barColors = ["red", "green", "blue", "orange", "brown"];
+
+    new Chart("bar-graph", {
+        type: "bar",
+        data: {
+            labels: xValues,
+            datasets: [
+                {
+                    backgroundColor: barColors,
+                    data: yValues,
+                },
+            ],
+        },
+    });
+}
