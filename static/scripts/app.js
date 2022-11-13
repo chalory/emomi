@@ -95,41 +95,44 @@ if (piano) {
             }, 1500);
         }
     };
+
+    //toggle var
+    var fade_state = true;
+    //on btn click
+
+    const emotions = document.querySelectorAll(".emotion");
+    const hideEmotions = () => {
+        emotions.forEach(element => {
+            element.classList.remove("show");
+        });
+    };
+
+    whiteKeys.forEach((key, index) => {
+        key.addEventListener("click", e => {
+            clearTimeout(timeOut);
+
+            hideEmotions();
+
+            const currentEmotion = emotions[index];
+
+            if (currentEmotion) {
+                const emotionType = currentEmotion?.getAttribute("data-name").toLowerCase();
+                audio = new Audio(`../static/sfx/${emotionType}.wav`);
+                audio.currentTime = 0;
+                audio.play();
+
+                currentEmotion.classList.toggle("show");
+
+                if (currentEmotion.classList.contains("show")) {
+                    timeOut = setTimeout(() => {
+                        currentEmotion.remove("show");
+                        currentEmotion.classList.remove("show");
+                    }, 1500);
+                }
+            }
+        });
+    });
 }
-
-//toggle var
-var fade_state = true;
-//on btn click
-
-const emotions = document.querySelectorAll(".emotion");
-const hideEmotions = () => {
-    emotions.forEach(element => {
-        element.classList.remove("show");
-    });
-};
-
-const whiteKeys = document.querySelectorAll(".white.key");
-
-let timeOut;
-
-whiteKeys.forEach((key, index) => {
-    key.addEventListener("click", e => {
-        clearTimeout(timeOut);
-
-        hideEmotions();
-
-        const currentEmotion = emotions[index];
-
-        currentEmotion.classList.toggle("show");
-
-        if (currentEmotion.classList.contains("show")) {
-            timeOut = setTimeout(() => {
-                currentEmotion.remove("show");
-                currentEmotion.classList.remove("show");
-            }, 1500);
-        }
-    });
-});
 
 // ! SPEECH TO TEXT
 const speechContainer = document.querySelector("#speech-container");
@@ -180,6 +183,13 @@ if (barGraph) {
                     data: yValues,
                 },
             ],
+        },
+        options: {
+            legend: { display: false },
+            title: {
+                display: true,
+                text: "Emotions",
+            },
         },
     });
 }
