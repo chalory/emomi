@@ -137,7 +137,7 @@ if (piano) {
                     timeOut = setTimeout(() => {
                         currentEmotion.remove("show");
                         currentEmotion.classList.remove("show");
-                    }, 1500);
+                    }, 5000);
                 }
             }
         });
