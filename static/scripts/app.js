@@ -72,26 +72,6 @@ const y = document.getElementById("hi");
 const z = document.getElementById("black key key-1");
 const x = document.getElementById("black key key-2");
 
-// z.onclick = function () {
-//     y.style.display = y.style.display === "flex" ? "" : "flex";
-//     function fade(element) {
-//         var op = 1; // initial opacity
-//         var timer = setInterval(function () {
-//             if (op <= 0.1) {
-//                 clearInterval(timer);
-//                 element.style.display = "hidden";
-//             }
-//             element.style.opacity = op;
-//             element.style.filter = "alpha(opacity=" + op * 100 + ")";
-//             op -= op * 0.1;
-//         }, 1000);
-//     }
-//     fade(y);
-//     setTimeout(() => {
-//         y.style.visibility = "hidden";
-//     }, 2800);
-// };
-
 let timeOut;
 
 z.onclick = function () {
