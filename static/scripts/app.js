@@ -166,7 +166,7 @@ if (speechContainer) {
 
 const barGraph = document.querySelector("#bar-graph");
 if (barGraph) {
-    var xValues = ["Italy", "France", "Spain", "USA", "Argentina"];
+    var xValues = ["Anger", "Hungry", "Sad", "Happy", "Bored"];
     var yValues = [55, 49, 44, 24, 15];
     var barColors = ["red", "green", "blue", "orange", "brown"];
 
